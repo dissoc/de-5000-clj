@@ -1,0 +1,39 @@
+#+TITLE:     de-5000-clj
+#+SUBTITLE:  clojure library for DE-5000 LCR meter
+#+KEYWORDS:  clojure, electronics
+#+LANGUAGE:  en
+
+* dependencies
+clj-serial snapshot is required.
+acquire from: https://github.com/peterschwarz/clj-serial
+
+** build
+#+begin_src sh
+lein install
+#+end_src
+
+* installation
+** Leiningen
+#+BEGIN_SRC clojure
+[de-5000-clj "0.1.0-SNAPSHOT"]
+#+END_SRC
+
+* building
+
+from the root of the project, run:
+
+#+begin_src sh
+lein install
+#+end_src
+
+* usage
+
+determine the path for the device
+i.g. /dev/ttyUSB0
+
+#+BEGIN_SRC clojure
+  (:require [de-5000-clj :refer [start]])
+
+  ;; if device is found at /dev/ttyUSB0
+  (start "/dev/ttyUSB0" :on-packet println)
+#+END_SRC
